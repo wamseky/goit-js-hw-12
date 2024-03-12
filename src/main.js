@@ -79,6 +79,8 @@ console.log(error);
     hideLoader();
 
     refs.form.reset();
+
+    showBtn();
   }
 }
 
