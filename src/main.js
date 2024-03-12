@@ -46,7 +46,8 @@ async function fetchRequest(event) {
   refs.gallery.innerHTML = '';
 
 
-
+ 
+  
   showLoader();
 
   try {
