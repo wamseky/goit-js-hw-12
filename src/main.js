@@ -70,15 +70,17 @@ async function fetchRequest(event) {
 
     refs.gallery.innerHTML = renderGallery(images);
 
-    images.length < 15 ? hideBtn() : showBtn();
+    images.length < 15 ? showBtn() : hideBtn();
 
     lightbox.refresh();
   } catch {
 console.log(error);
   } finally {
     hideLoader();
-    hideBtn();
+
     refs.form.reset();
+
+    hideBtn();
   }
 }
 
