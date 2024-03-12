@@ -31,16 +31,16 @@ async function fetchRequest(event) {
   searchQuery = refs.form.elements.query.value.trim();
 
   if (searchQuery === '') {
-   return iziToast.warning({
-      message: 'Please enter a search query.',
-      messageColor: 'black',
-      backgroundColor: '#ffac26',
-      position: 'topRight',
-      pauseOnHover: false,
-      progressBarColor: 'black',
-      timeout: 3000,
-    });
-  }
+    return iziToast.warning({
+     message: 'Please enter a search query.',
+     messageColor: 'black',
+     backgroundColor: '#ffac26',
+     position: 'topRight',
+     pauseOnHover: false,
+     progressBarColor: 'black',
+     timeout: 3000,
+   });
+   }
 
   currentPage = 1;
   refs.gallery.innerHTML = '';
