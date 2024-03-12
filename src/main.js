@@ -31,7 +31,7 @@ async function fetchRequest(event) {
   searchQuery = refs.form.elements.query.value.trim();
 
   if (searchQuery === '') {
-   return iziToast.warning({
+    iziToast.warning({
       message: 'Please enter a search query.',
       messageColor: 'black',
       backgroundColor: '#ffac26',
@@ -40,6 +40,7 @@ async function fetchRequest(event) {
       progressBarColor: 'black',
       timeout: 3000,
     });
+    return;
   }
 
   currentPage = 1;
