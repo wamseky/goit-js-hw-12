@@ -52,19 +52,7 @@ async function fetchRequest(event) {
         timeout: 3000,
       });
     }
-    if (images.length === 0) {
-      iziToast.error({
-        theme: 'dark',
-        message:
-          'Sorry, there are no images matching your search query. Please try again!',
-        messageColor: '#ffffff',
-        backgroundColor: '#ef4040',
-        position: 'topRight',
-        pauseOnHover: false,
-        progressBarColor: '#b51b1b',
-        timeout: 3000,
-      });
-    }
+
 
     refs.gallery.innerHTML = renderGallery(images);
 
