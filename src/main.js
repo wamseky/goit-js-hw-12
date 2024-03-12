@@ -49,9 +49,21 @@ async function fetchRequest(event) {
 
   showLoader();
 
-  const data = await buildUrl(searchQuery, currentPage);
   try {
+    const data = await buildUrl(searchQuery, currentPage);
     const images = data.hits;
+
+    if (images.length === '') {
+      iziToast.warning({
+        message: 'Please enter a search query.',
+        messageColor: 'black',
+        backgroundColor: '#ffac26',
+        position: 'topRight',
+        pauseOnHover: false,
+        progressBarColor: 'black',
+        timeout: 3000,
+      });
+    }
 
     refs.gallery.innerHTML = renderGallery(images);
 
@@ -74,6 +86,8 @@ async function fetchRequest(event) {
     hideLoader();
 
     refs.form.reset();
+
+    hideBtn();
   }
 }
 
