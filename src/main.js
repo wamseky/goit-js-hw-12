@@ -69,8 +69,14 @@ async function fetchRequest(event) {
     }
 
     refs.gallery.innerHTML = renderGallery(images);
+    
+if (images.length < 15) {
+  hideBtn()
+}
+else {
+  showBtn()
+}
 
-    images.length < 15 ? hideBtn() : showBtn();
 
     lightbox.refresh();
   } catch {
@@ -80,7 +86,7 @@ console.log(error);
 
     refs.form.reset();
 
-    showBtn();
+    hideBtn();
   }
 }
 
