@@ -33,19 +33,7 @@ async function fetchRequest(event) {
   currentPage = 1;
   refs.gallery.innerHTML = '';
 
-  if (searchQuery === '') {
-    iziToast.warning({
-      message: 'Please enter a search query.',
-      messageColor: 'black',
-      backgroundColor: '#ffac26',
-      position: 'topRight',
-      pauseOnHover: false,
-      progressBarColor: 'black',
-      timeout: 3000,
-    });
 
-    return;
-  }
 
   showLoader();
 
