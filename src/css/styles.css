@@ -195,9 +195,9 @@ header > .container {
   background-color: #6c8cff;
 }
 
-.is-hidden {
+/*.is-hidden {
   display: none;
-}
+}*/
 
 /* Reset styles */
 * {
