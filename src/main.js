@@ -47,7 +47,7 @@ async function fetchRequest(event) {
 
 
  
-
+  
   showLoader();
 
   try {
@@ -80,6 +80,7 @@ console.log(error);
 
     refs.form.reset();
 
+    hideBtn();
   }
 }
 
