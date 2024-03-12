@@ -51,6 +51,20 @@ async function fetchRequest(event) {
         progressBarColor: 'black',
         timeout: 3000,
       });
+    };
+
+    if (images.length === 0) {
+      iziToast.error({
+        theme: 'dark',
+        message:
+          'Sorry, there are no images matching your search query. Please try again!',
+        messageColor: '#ffffff',
+        backgroundColor: '#ef4040',
+        position: 'topRight',
+        pauseOnHover: false,
+        progressBarColor: '#b51b1b',
+        timeout: 3000,
+      });
     }
 
     refs.gallery.innerHTML = renderGallery(images);
@@ -59,36 +73,13 @@ async function fetchRequest(event) {
 
     lightbox.refresh();
   } catch {
-    iziToast.error({
-      theme: 'dark',
-      message:
-        'Sorry, there are no images matching your search query. Please try again!',
-      messageColor: '#ffffff',
-      backgroundColor: '#ef4040',
-      position: 'topRight',
-      pauseOnHover: false,
-      progressBarColor: '#b51b1b',
-      timeout: 3000,
-    });
+console.log(error);
   } finally {
     hideLoader();
 
     refs.form.reset();
 
     hideBtn();
-  }
-  if (images.length === 0) {
-    iziToast.error({
-      theme: 'dark',
-      message:
-        'Sorry, there are no images matching your search query. Please try again!',
-      messageColor: '#ffffff',
-      backgroundColor: '#ef4040',
-      position: 'topRight',
-      pauseOnHover: false,
-      progressBarColor: '#b51b1b',
-      timeout: 3000,
-    });
   }
 }
 
