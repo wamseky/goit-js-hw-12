@@ -71,10 +71,10 @@ async function fetchRequest(event) {
     refs.gallery.innerHTML = renderGallery(images);
     
 if (images.length < 15) {
-  hideBtn()
+  hideBtn();
 }
 else {
-  showBtn()
+  showBtn();
 }
 
 
@@ -86,7 +86,7 @@ console.log(error);
 
     refs.form.reset();
 
-    hideBtn();
+    // hideBtn();
   }
 }
 
