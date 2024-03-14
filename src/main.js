@@ -70,7 +70,7 @@ async function fetchRequest(event) {
 
     refs.gallery.innerHTML = renderGallery(images);
     
-if (images.length < 15) {
+if (images.length > 15) {
   hideBtn();
 }
 else {
