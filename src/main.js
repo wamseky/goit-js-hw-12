@@ -32,22 +32,19 @@ async function fetchRequest(event) {
 
   if (searchQuery === '') {
     return iziToast.warning({
-     message: 'Please enter a search query.',
-     messageColor: 'black',
-     backgroundColor: '#ffac26',
-     position: 'topRight',
-     pauseOnHover: false,
-     progressBarColor: 'black',
-     timeout: 3000,
-   });
-   }
+      message: 'Please enter a search query.',
+      messageColor: 'black',
+      backgroundColor: '#ffac26',
+      position: 'topRight',
+      pauseOnHover: false,
+      progressBarColor: 'black',
+      timeout: 3000,
+    });
+  }
 
   currentPage = 1;
   refs.gallery.innerHTML = '';
 
-
- 
-  
   showLoader();
 
   try {
@@ -69,18 +66,16 @@ async function fetchRequest(event) {
     }
 
     refs.gallery.innerHTML = renderGallery(images);
-    
-if (images.length > 15) {
-  hideBtn();
-}
-else {
-  showBtn();
-};
 
+    if (images.length > 15) {
+      hideBtn();
+    } else {
+      showBtn();
+    }
 
     lightbox.refresh();
   } catch {
-console.log(error);
+    console.log(error);
   } finally {
     hideLoader();
 
@@ -113,8 +108,6 @@ refs.loadMoreBtn.addEventListener('click', async () => {
     lightbox.refresh();
 
     if (res.hits.length < 15) {
-      hideBtn();
-
       iziToast.info({
         theme: 'dark',
         message: "We're sorry, but you've reached the end of search results.",
@@ -125,6 +118,7 @@ refs.loadMoreBtn.addEventListener('click', async () => {
         progressBarColor: 'black',
         timeout: 3000,
       });
+      hideBtn();
     }
   } catch (error) {
     throw new Error(error.status);
