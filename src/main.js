@@ -32,22 +32,19 @@ async function fetchRequest(event) {
 
   if (searchQuery === '') {
     return iziToast.warning({
-     message: 'Please enter a search query.',
-     messageColor: 'black',
-     backgroundColor: '#ffac26',
-     position: 'topRight',
-     pauseOnHover: false,
-     progressBarColor: 'black',
-     timeout: 3000,
-   });
-   }
+      message: 'Please enter a search query.',
+      messageColor: 'black',
+      backgroundColor: '#ffac26',
+      position: 'topRight',
+      pauseOnHover: false,
+      progressBarColor: 'black',
+      timeout: 3000,
+    });
+  }
 
   currentPage = 1;
   refs.gallery.innerHTML = '';
 
-
- 
-  
   showLoader();
 
   try {
@@ -69,24 +66,20 @@ async function fetchRequest(event) {
     }
 
     refs.gallery.innerHTML = renderGallery(images);
-    
-if (images.length < 15) {
-  hideBtn();
-}
-else {
-  showBtn();
-}
 
+    if (images.length > 15) {
+      showBtn();
+    } else {
+      hideBtn();
+    }
 
     lightbox.refresh();
   } catch {
-console.log(error);
+    console.log(error);
   } finally {
     hideLoader();
 
     refs.form.reset();
-
-    // hideBtn();
   }
 }
 
